@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-cnwj1o3#ijm-osj6_ll$fr1hyf35ens_p87x@67l!$0+dd61h!
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -43,6 +43,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhitenoiseMiddlewaare',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -74,13 +75,35 @@ WSGI_APPLICATION = 'Amazon.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
+# import dj_database_url
+# DATABASE = {
+#     'default': dj_database_url.parse(
+#         "postgresql" == "postgresql://clintuser:1qCgVnvjjIZrrduyNKnr4SAo9VTcyBVn@dpg-d50rrammcj7s73et9ckg-a.virginia-postgres.render.com/clintdb_qeen",
+#         conn_max_age=600,
+#         ssl_require=True
+#     )
+# }
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    'default':{
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': "clintdb_qeen",
+        "USER": 'clintuser',
+        "PASSWORD": "1qCgVnvjjIZrrduyNKnr4SAo9VTcyBVn",
+        "PORT": '5432',
+        "HOST": 'dpg-d50rrammcj7s73et9ckg-a.virginia-postgres.render.com',
+        "OPTIONS":{
+            'sslmode': 'require'
+        }
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
@@ -118,7 +141,10 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [
-    BASE_DIR / 'static']
+    BASE_DIR / 'static'
+]
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'

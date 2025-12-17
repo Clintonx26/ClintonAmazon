@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Page</title>
+</head>
+<body style="margin:0; padding:0; font-family: Arial, sans-serif; background-color: #e6f0ff; display:flex; justify-content:center; align-items:center; height:100vh;">
+
+    <div style="background-color: #ffffff; padding: 40px; border-radius: 10px; box-shadow: 0 0 20px rgba(0,0,0,0.2); width: 350px; text-align:center;">
+        <h2 style="margin-bottom: 30px; color: #333;">Register</h2>
+        <form action="{% url 'shop:register' %}" method="post">
+            {% csrf_token %}
+            <input type="text" name="fullname" placeholder="Full Name" 
+                   style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box;">
+            
+            <input type="text" name="username" placeholder="username" 
+                   style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box;">
+
+            <input type="email" name="email" placeholder="Email" 
+                   style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box;">
+            
+            <input type="password" name="password" placeholder="Password" 
+                   style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box;">
+            
+            <input type="password" name="confirm_password" placeholder="Confirm Password" 
+                   style="width: 100%; padding: 10px; margin-bottom: 20px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box;">
+
+            <button type="submit" 
+                    style="width: 100%; padding: 10px; background-color: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer;">
+                Register
+            </button>
+        </form>
+        <p style="margin-top: 15px; font-size: 14px; color: #555;">Already have an account? <a href="/login" style="color: #28a745; text-decoration: none;">Login</a></p>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,355 @@
+<!-- amazon-navbar.html -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+<style>
+
+:root{
+    --amazon-dark: #131921;
+    --amazon-dark-2: #232f3e;
+    --amazon-orange: #ff9900;
+    --muted: #d5d5d5;
+    --search-height: 40px;
+    --header-height: 64px;
+    --secondary-height: 40px;
+    /* --max-width: 1200px; */
+}
+
+*{box-sizing:border-box}
+body{
+    margin:0 !important;
+    padding: 0 !important;
+    font-family: "Amazon Ember", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    background: #fff;
+    color:#111;
+}
+
+/* --- Top header (main) --- */
+.top-header{
+    background: var(--amazon-dark);
+    color: white;
+}
+
+.top-row{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    height: var(--header-height);
+    padding: 6px 12px;
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    min-width: 150px;
+}
+
+.logo img{ height:34px; width:auto; display:block; }
+
+.deliver-to{
+    font-size:12px;
+    line-height:1;
+    color:#ddd;
+}
+  
+.deliver-to .line1 { font-weight: 400; }
+  
+.deliver-to .line2 { font-weight:700; color:#fff; }
+
+  
+/* Search */
+.search-wrap{
+    flex:1;
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+  
+.search-container{
+    display:flex;
+    align-items:center;
+    background:#fff;
+    border-radius:4px;
+    padding:4px;
+    height: var(--search-height);
+    box-shadow: 0 1px 0 rgba(0,0,0,0.1);
+    width:100%;
+}
+
+.category-select{
+    border: 0;
+    background: transparent;
+    padding:8px;
+    font-size:13px;
+    color:#444;
+    outline:none;
+    border-right: 1px solid #eee;
+    min-width:110px;
+}
+
+.search-input{
+    border:0;
+    padding:8px 10px;
+    flex:1;
+    font-size:14px;
+    outline:none;
+}
+  
+.search-button{
+    background: var(--amazon-orange);
+    border:0;
+    padding:8px 12px;
+    border-radius:3px;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:700;
+}
+
+/* Account / Orders / Cart cluster */
+.actions {
+    display:flex;
+    align-items:center;
+    gap:18px;
+    margin-left:12px;
+}
+
+.action-item{
+    color:#fff;
+    font-size:12px;
+    text-align:left;
+    cursor:pointer;
+}
+
+.action-item .small{ font-size:11px; opacity:0.9; }
+
+.cart{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    position:relative;
+}
+
+.cart .count{
+    position:absolute;
+    top:-6px;
+    right:-6px;
+    background:var(--amazon-orange);
+    color:#111;
+    font-weight:700;
+    font-size:12px;
+    padding:2px 6px;
+    border-radius:12px;
+}
+
+/* Secondary department strip */
+.secondary-nav{
+    background: var(--amazon-dark-2);
+    color: white;
+    height: var(--secondary-height);
+    display:flex;
+    align-items:center;
+    gap:14px;
+    padding: 0 12px;
+    font-size:13px;
+}
+
+.secondary-inner{
+    max-width: var(--max-width);
+    margin:0 auto;
+    display:flex;
+    align-items:center;
+    gap:16px;
+    width:100%;
+}
+
+.hamburger{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    cursor:pointer;
+    color:#fff;
+}
+
+/* Responsive: mobile */
+@media (max-width:900px){
+    .top-row{ padding:8px; }
+    .deliver-to{ display:none; }
+    .category-select{ display:none; }
+    .actions .small{ display:none; }
+    .secondary-nav{ display:none; } /* hide secondary on small */
+}
+
+.deliver-to:hover{
+    border: 1px solid white;
+    padding: 10px;
+}
+
+.nabar{
+  background-color: #131921;
+  padding: 10px 20px;
+  color: white;
+}
+
+.nav-right{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.dropdown{
+  position: relative;
+}
+
+.dropbtn{ 
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  text-align: left;
+}
+
+.small-text{
+  font-size: 120x;
+}
+
+.bold-text{
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.dropdown-content{
+  display: none;
+  position: absolute;
+  top: 45px;
+  right: 0;
+  background-color: white;
+  min-width: 160px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  z-index: 1000;
+}
+
+.dropdown-content a{
+  color: black;
+  padding: 10px 15px;
+  display: block;
+  text-decoration: none;
+}
+
+.dropdown-content a:hover{
+  background-color: #f1f1f1;
+}
+
+</style>
+
+
+</head>
+<body>
+
+<header class="top-header">
+  <div class="top-row" role="navigation" aria-label="Main navigation">
+    <div class="logo" aria-hidden="false">
+      <!-- Replace with Amazon SVG or image -->
+      <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 30'><rect width='100' height='30' fill='%23131921'/><text x='4' y='20' font-size='18' fill='%23ff9900' font-family='Arial'>amazon</text></svg>" alt="Amazon logo">
+      <div class="deliver-to" aria-hidden="false">
+        <a href="" style="text-decoration: none; color: white; font-size: 15px;">
+            <div class="line1">Deliver to</div>
+            <div class="line2">Nigeria</div>
+        </a>
+      </div>
+    </div>
+
+    <div class="search-wrap">
+      <div class="search-container" role="search" aria-label="Search">
+        <select class="category-select" aria-label="Select department">
+          <option>All</option>
+          <option>Utensils</option>
+          <option>Electronics</option>
+          <option>Fashion</option>
+        </select>
+        <input class="search-input" type="search" placeholder="Search Amazon" aria-label="Search Amazon">
+        <button class="search-button" aria-label="Search">
+          <!-- magnifier -->
+          🔍
+        </button>
+      </div>
+    </div>
+    
+    <!-- <div>
+      <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Sign in<br><strong>Account & Lists</strong>
+          </a>
+          <div style="text-decoration: none;" class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="">Sign in</a>
+            <a class="dropdown-item" href="">Create an account</a>
+          </div>
+        </li>
+    </div> -->
+
+    <nav class="navbar">
+      <div class="nav-right">
+        <div class="dropdown">
+          <button class="dropbtn" onclick="toggleDropdown()">
+            <span class="small-text">Sign in</span><br>
+            <span class="bold-text">Account & Lists</span>
+
+            <div id="accountDropdown" class="dropdown-content">
+              <a href="{% url 'shop:login' %}">Login</a>
+              <a href="{% url 'shop:register' %}">Register</a>
+            </div>
+          </button>
+        </div>
+      </div>
+    </nav>
+    
+    
+    <div class="action-item orders" tabindex="0">
+       <a style="text-decoration: none;" href="{% url 'shop:orders' %}">
+        <h2 style="color: white !important;">Orders</h2></a>
+    </div>
+
+    <!-- <a href="http://127.0.0.1:8000/admin/login/?next=/admin/">Admin</a> -->
+
+    <div class="action-item cart" tabindex="0" aria-label="Cart">
+        <div>🛒</div>
+        <div><h2><a style="text-decoration: none; color: white !important;" href="{% url 'shop:view_cart' %}">Cart</a></h2></div>
+      </div>
+    
+  </div>
+
+  <div class="secondary-nav" aria-label="Departments">
+    <div class="secondary-inner">
+      <div class="hamburger" tabindex="0">☰ All</div>
+      <div>Today's Deals</div>
+      <div>Customer Service</div>
+      <div>Registry</div>
+      <div>Gift Cards</div>
+      <div>Sell</div>
+      <div style="margin-left:auto; font-size:12px; opacity:0.9;">Deliver to US • English</div>
+    </div>
+  </div>
+</header>
+
+<script>
+  function toggleDropdown() {
+    const dropdown = document.getElementById("accountDropdown");
+    dropdown.style.display =
+      dropdown.style.display === "block" ? "none" : "block";
+  }
+
+  window.onclick = function(event) {
+    if (!event.target.closet('.dropdown')) {
+      document.getElementById("accountDropdown").style.display = "none";
+    }
+  };
+</script>
+
+</body>
+</html>

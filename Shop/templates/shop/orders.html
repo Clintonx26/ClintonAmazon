@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block content %}
+{% for order in orders %}
+    <div class="container m-3">
+        <h5>Date: {{order.created_at}}</h5>
+        <h6>Total price: ${{order.total}}</h6>
+        <a href="{% url 'order:detail' order.id %}" class="btn btn-secondary">View history</a>
+    </div>
+{% endfor %}
+Your Orders
+{{orders.created_at}}
+{% endblock content %}

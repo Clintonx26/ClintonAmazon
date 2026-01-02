@@ -1,3 +1,1 @@
-# ClintMazon
-# ClintonAmazon
 # ClintonAmazon
